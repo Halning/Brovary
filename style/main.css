@@ -1,0 +1,616 @@
+
+
+body {
+    opacity: .8;
+}
+/*-----------------------------------------------------------------------------*/
+#main {
+    background-color: white;
+    height: 101%;
+    width: 980px;
+    left: 50%;
+    margin: 0 0 0 -490px;
+    position: absolute;
+}
+/*----------------------------------------------------------------------------*/
+/*                                  Header
+/*----------------------------------------------------------------------------*/
+
+#enterMain , #searchMain{
+    display: none;
+    height: 150%;
+    width: 100%;
+    z-index: 3;
+    background-color: #363636;
+    position: absolute;
+    opacity: 0;
+}
+
+
+/*----------------------------------------------------------------------------*/
+
+#searchField {
+    position: absolute;
+    left: 50%;
+    top: 33%;
+    margin: -200px 0 0 -350px;
+    color: white;
+    font: 15px arial;
+    height: 400px;
+    width: 700px;
+}
+
+#closeSearch {
+    float: right;
+    margin: -100px 0 0 0;
+    cursor: pointer;
+}
+
+#loopW {
+    margin: -50px 0 0 0;
+}
+
+#inputSearch {
+    height: 50px;
+    width: 580px;
+    background-color: #363636;
+    border: none;
+    border-bottom: solid 3px white;
+    font: 25px arial;
+    color: white;
+    outline:none;
+}
+
+#searchField p {
+    font: 19px arial ;
+}
+
+.setingsCost ,.ssC {
+    height: 25px;
+    width: 175px;
+    border: solid 1px white;
+    float: left;
+    margin: 0 50px 0 0;
+    padding: 1px 0 0 10px;
+    background-color: #363636;
+    color: white;
+    font: 15px arial;
+}
+.ssC {
+    color: white;
+    width: 187px;
+    height: 27px;
+}
+
+#subSearch {
+    height: 30px;
+    width: 70px;
+    background-color: #363636;
+    color: white;
+    font: 15px arial;
+}
+
+/*----------------------------------------------------------------------------*/
+#header {
+    background-color: white;
+    height: 200px;
+    width: 980px;
+    cursor: pointer;
+}
+
+/*----------------------------------------------------------------------------*/
+
+#headerUp {
+    font: 12px arial;
+    height: 70px;
+    width: 980px;
+    margin: 0 0 10px 0;
+}
+
+#headerUp span{
+    float: right;
+    color: black;
+    margin: 10px;
+}
+
+#headerUp strong {
+    font: 15px arial;
+    color: blue;
+}
+
+#men , #logout {
+    float: right;
+    height: 20px;
+    width: 20px;
+    margin: 7px 40px 10px -5px;
+}
+
+#avatarVk {
+    height: 30px;
+    width: 30px;
+    float: right;
+    margin: -5px 5px;
+}
+
+/*----------------------------------------------------------------------------*/
+
+
+#headerCenter {
+    height: 100px;
+    width: 980px;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+#headerCenter div {
+    float: left;
+}
+
+#title {
+    font: 38px arial;
+    margin: 0px 50px 0px 10px;
+}
+
+#weather {
+    margin: -40px 0 0 0;
+}
+
+#minfin-informer-m1Fn-currency {
+    margin: -30px 0 0 22px;
+
+}
+
+/*----------------------------------------------------------------------------*/
+
+#headerDown {
+    border-bottom: solid 1px #000;
+    color: black;
+    height: 25px;
+    margin: 5px 0 0 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+#news{
+    border: solid 1px black;
+    border-bottom: solid 1px #000;
+    background: white;
+    float: left;
+    font: 14px arial,sans-serif;
+    height: 24px;   
+    width: 100px;
+    margin: 0 0 0 35px;
+    line-height: 25px;
+    box-shadow: inset 0px 0px 10px #000;
+
+}
+
+#panelNews {
+    background-size: 90% 90%;
+    background: white;
+    box-shadow: 10px 10px 10px #000;
+    display: none;
+    font-family: garamond,times-new-roman,serif;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    margin: 2px 0 0 0;
+    overflow-y: auto;
+    height: 300px;
+
+}
+
+#panelNews p{
+    color: black;
+    text-align: center;
+
+}
+
+#panelNews div {
+    float: left;
+}
+
+#listings {
+    border: solid 1px black;
+    font: 14px arial,sans-serif;
+    border-bottom: solid 1px #000;
+    height: 24px;
+    width: 200px;
+    background: white;
+    float: left;
+    margin: 0 0 0 35px;
+    box-shadow: inset 0px 0px 10px #000;
+}
+
+#listings span {
+    font-size: 20px;
+    margin: 0 10px 0 0;
+}
+
+#search {
+    height: 24px;
+    width: 100px;
+    background-color: white;
+    float: right;
+    font: 17px arial;
+    vertical-align: top;
+
+}
+
+#searchImg {
+    float: right;
+    height: 30px;
+    width: 30px;
+    margin: -5px 0 0 0;
+
+}
+/*----------------------------------------------------------------------------*/
+/*                                 Middle All
+/*----------------------------------------------------------------------------*/
+
+#middle div{  
+    cursor: pointer;
+}
+
+#table1, #tableBA1 {
+    width: 307px;
+    background-color: #8470FF;
+}
+
+#table2, #tableBA2 {
+    width: 307px;
+    background-color: #cc0000; 
+}
+
+#table3, #tableBA3  {
+    width: 307px;
+    background-color: #cc0000; 
+}
+
+#table4, #tableBA4  {
+    width: 180px;
+    background-color: #cc0000; 
+}
+
+#table5, #tableBA5  {
+    width: 372px;
+    background-color: #cc0000; 
+}
+
+#table6, #tableBA6  {
+    width: 372px;
+    background-color: #cc0000; 
+
+}
+
+#table7, #tableBA7  {
+    width: 180px;
+    background-color: #cc0000; 
+}
+
+#table8, #tableBA8  {
+    width: 307px;
+    background-color: #cc0000;
+}
+
+#table9, #tableBA9  {
+    width: 307px;
+    background-color: #cc0000; 
+}
+
+#table10, #tableBA10  {
+    width: 307px;
+    background-color: #cc0000;
+
+}
+
+#table11, #tableBA11  {
+    width: 180px;
+    background-color: #cc0000;
+}
+
+#table12, #tableBA12  {
+    width: 372px;
+    background-color: #cc0000;
+}
+
+#table13, #tableBA13  {
+    width: 372px;
+    background-color: #cc0000;
+}
+
+#table14, #tableBA14 {
+    width: 180px;
+    background-color: #cc0000;
+}
+
+
+/*-----------------------------------------------------------------------------*/
+
+.advertising {
+    background-image: url(/images/adv.jpg);
+    background-size: 100%;
+    line-height: 292px;
+    text-align: center;
+    float: right;
+    width: 370px;
+    height: 292px;
+    margin: 6px 20px 0 0;
+
+}
+
+#goRight {
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin: 65px 5px 0 0;
+}
+
+hr {
+    background-color: black;
+}
+
+
+
+@media (max-width: 980px) {
+    #main {
+        margin: 0px;
+        left: 0%;
+    }
+}
+
+
+/*----------------------------------------------------------------------------
+                            Slider
+----------------------------------------------------------------------------*/
+
+.slider_wrap {
+    width:inherit;
+    height:inherit;
+    position:relative;
+    overflow:hidden;
+}
+.slider_wrap img {
+    width:inherit;
+    height:auto;
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;	
+}
+.slider_wrap img:first-child {
+    display:block;
+}
+.slider_wrap span {
+    margin-top:-13px;
+    width:15px;
+    height:26px;
+    display:block;
+    position:absolute;
+    top:50%;
+    cursor:pointer;
+}
+.slider_wrap span.next {
+    right:0;
+    background-position:-15px 0;
+}
+.slider_wrap span.next:hover {
+    background-position:-15px -26px;
+}
+.slider_wrap span.prev {
+    left:0;
+    background-position: 0 0;
+}
+.slider_wrap span.prev:hover {
+    background-position: 0 -26px;
+}
+
+/*----------------------------------------------------------------------------
+                                    Index
+----------------------------------------------------------------------------*/
+#domBack{
+
+    width: inherit;
+    display: none;
+    margin: 50px 0 -35px 0;
+    text-align: center;
+}
+
+
+#goBack {
+    background-image: url(/images/up.jpg); 
+    background-size: 100%;
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-right: 20px;
+}
+
+#domShow {
+
+    width: 100%;
+    background-color: white;
+    display: none;
+    margin: 70px 0 0 0;
+    padding: 10px 0px;
+    border-bottom: solid 2px #000;
+    max-height: 470px;
+    overflow-y: scroll;
+}
+
+#domShow div{   
+    display: inline-block;
+}
+
+.table a {
+    display: block; /* РЎСЃС‹Р»РєР° РєР°Рє Р±Р»РѕС‡РЅС‹Р№ СЌР»РµРјРµРЅС‚ */
+    height: 100%; /* Р’С‹СЃРѕС‚Р° РЅР° РІРµСЃСЊ СЃР»РѕР№ */
+    padding: 100px 20px;
+    font: 20px arial black;
+}
+
+.table {
+    height: 140px;
+    margin: 6px 3px;
+}
+
+/*-----------------------------------------------------------------------------*/
+
+
+#nextPage {
+    width: 960px;
+    height: 30px;
+    text-align: center;
+}
+
+#imgNextPage {
+    height: 20px;
+    width: 20px;
+    background-image: url(/images/down.png);
+    background-size: 100%;
+}
+
+#imgBeforePage {
+    height: 20px;
+    width: 20px;
+    background-image: url(/images/up.jpg);
+    background-size: 100%;
+}
+
+
+
+.rightImgShow {
+    height: 13px;
+    width: 13px;
+    display: none;
+}
+
+
+#services, #goods, #work, #organization {
+
+    position:relative;
+    height: 80px;
+    margin: 70px 0 0 0;
+
+}
+
+#services div, #goods div, #work div, #organization div{
+    font: 25px arial black;
+    line-height: 80px;
+    float: left;
+    position:absolute;
+}
+
+
+#servicesFirst {
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0px 10px 10px black;
+}
+
+#servicesSecond {
+    width: 200px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 200px;
+}
+
+#servicesThird {
+    width: 350px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 410px;
+}
+
+#servicesFourth {
+    width: 208px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 770px;
+}
+
+#goodsFirst {
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0px 10px 10px black;
+}
+
+#goodsSecond {
+    width: 50px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 200px;
+}
+
+#goodsThird {
+    width: 350px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 260px;
+}
+
+#goodsFourth {
+    width: 358px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 620px;
+}
+
+#workFirst {
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0px 10px 10px black;
+}
+
+#workSecond {
+    width: 100px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 200px;
+}
+
+#workThird {
+    width: 350px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 310px;
+}
+
+#workFourth {
+    width: 308px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 670px;
+}
+
+#organizationFirst {
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0px 10px 10px black;
+}
+
+#organizationSecond {
+    width: 200px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 200px;
+}
+
+#organizationThird {
+    width: 250px;
+    height: 85%;
+    background-color: #cc0000; 
+    left: 410px;
+}
+
+#organizationFourth {
+    width: 308px;
+    height: 85%;
+    left: 670px;
+    background-color: #cc0000;
+}
+

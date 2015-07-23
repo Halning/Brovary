@@ -1,0 +1,244 @@
+/*----------------------------------------------------------------------------
+                                    BlockAdv
+----------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------2.1------
+//                              Title
+//----------------------------------------------------------------------------*/
+
+.tooltip {
+    border: 1px solid #333;
+    background-color: #ffed8a;
+    display: none;
+    position: absolute;
+    padding: 2px 6px;
+    max-width: 300px;
+}
+
+#look {
+    float: left;
+    width: 200px;
+    margin: 0 0 0 15px;
+}
+
+.lookImg {
+    height: 30px;
+    width: 30px;
+    margin: 10px 10px 0 0;
+    float: left;
+}
+
+#cost {
+    float: left;
+    display: inline-block;
+    height: 50px;
+    width: 440px;
+    margin: 10px 0 0 100px;
+}
+
+
+
+.setingsCostBA ,.ssCBA {
+    height: 25px;
+    width: 140px;
+    border: solid 1px black;
+    padding: 1px 0 0 10px;
+    background-color: white;
+    font: 15px arial;
+    margin: 0 20px;
+}
+.ssCBA {
+    color: black;
+    width: 152px;
+    height: 27px;
+}
+
+#sorting {
+    float: right;
+    margin: 10px 20px 0 0;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+
+//------------------------------------------------------------------------------
+#domBackBA {
+    width: inherit;
+    margin: 50px 0 0 0;
+    text-align: center;
+}
+#domBackBA div {
+    text-align: center;
+}
+
+#back {
+    float: left;
+}
+
+#back a {
+    display: block; /* РЎСЃС‹Р»РєР° РєР°Рє Р±Р»РѕС‡РЅС‹Р№ СЌР»РµРјРµРЅС‚ */
+    height: 100%; /* Р’С‹СЃРѕС‚Р° РЅР° РІРµСЃСЊ СЃР»РѕР№ */
+    font: 20px arial black;
+    color: #000;
+}
+#lastSpan {
+    font-size: 20px;
+}
+
+#goBackBA {
+    background-image: url(/images/up.jpg); 
+    background-size: 100%;
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin: 0 20px 0 0;
+    opacity: 0;
+}
+
+#domShowBA {
+    position: absolute;
+    width: 100%;
+    display: none;
+    padding: 10px 0px;
+    border-bottom: solid 2px #000;
+    max-height: 470px;
+    overflow-y: scroll;
+    background: white;
+}
+
+#domShowBA div{   
+    display: inline-block;
+}
+
+.tableBA a {
+    display: block; /* РЎСЃС‹Р»РєР° РєР°Рє Р±Р»РѕС‡РЅС‹Р№ СЌР»РµРјРµРЅС‚ */
+    height: 100%; /* Р’С‹СЃРѕС‚Р° РЅР° РІРµСЃСЊ СЃР»РѕР№ */
+    padding: 100px 20px;
+    font: 20px arial black;
+}
+.tableBA {
+    height: 140px;
+    margin: 6px 3px;
+}
+
+#nextPageBA {
+    width: 960px;
+    height: 30px;
+    text-align: center;
+}
+
+#imgNextPageBA {
+    height: 20px;
+    width: 20px;
+    background-image: url(/images/down.png);
+    background-size: 100%;
+}
+
+#imgBeforePageBA {
+    height: 20px;
+    width: 20px;
+    background-image: url(/images/up.jpg);
+    background-size: 100%;
+}
+
+
+.rightImgShowBA {
+    height: 13px;
+    width: 13px;
+    opacity: 0;
+}
+
+/*-----------------------------------------------------------------------------*/
+#middleBA {
+    margin: 100px 0 50px 0;
+    //background-color: wheat;
+    width: 100%;
+}
+
+.listings {
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    margin: 15px 0 0 0;
+}
+
+.listings p{
+    font: 15px arial black;
+}
+
+.listings hr {
+    background: gray;
+}
+
+.listings span {
+    float: right;
+}
+
+#listImg {
+    height: 98%;
+    width: 15%;
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+#listName {
+    font: 18px arial;
+}
+
+#listName strong {
+    color: #1E90FF;
+}
+/*----------------------------------------------------------------------------*/
+
+#pagesConteiner {
+    height: 55px;
+    width: 100%;
+    //background-color: wheat;
+    margin: 0 0 100px 0;
+    padding: 0 10px;
+
+}
+
+#pagePrev {
+    float: left;
+}
+
+#pagesConteiner hr {
+    clear: both;
+} 
+
+#pagesConteiner strong {
+    color: #1E90FF;
+}
+
+
+#pageNext {
+    float: right;
+}
+
+.pages {
+    float: left;
+    height: 35px; 
+    text-align: center;
+    width: 25px;
+    line-height: 35px;
+    margin: -7px 0 7px 9px;
+    font: 18px arial;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.pages a {
+    line-height: 35px;
+    display: block; /* РЎСЃС‹Р»РєР° РєР°Рє Р±Р»РѕС‡РЅС‹Р№ СЌР»РµРјРµРЅС‚ */
+    height: 100%; /* Р’С‹СЃРѕС‚Р° РЅР° РІРµСЃСЊ СЃР»РѕР№ */
+}
+
+#pageOne {
+    background-color: #1E90FF;
+}
+
+#pageOne strong{
+    color: white;
+}
+
