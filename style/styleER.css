@@ -22,8 +22,8 @@
 }
 
 #vkImg a, #facImg a{
-    display: block; /* аЁббаЛаКаА аКаАаК аБаЛаОбаНбаЙ баЛаЕаМаЕаНб */
-    height: 100%; /* аббаОбаА аНаА аВаЕбб баЛаОаЙ */
+    display: block; 
+    height: 100%; 
 }
 
 #facImg {
@@ -35,9 +35,19 @@
     float: right;
 }
 
-#registrationField {  
+#registrationField, #pageUserField  {  
     margin: -400px 0 0 -300px;
     height: 800px;
+}
+
+#addlistField{
+    height: 900px;
+    width: 900px;
+    margin: -400px 0 0 -450px;
+}
+
+#pageUserField {
+    
 }
 
 .closeEnter {
@@ -48,7 +58,7 @@
 
 
 /*-----------------------------------------------------------------------------*/
-#login , #regis, #sendPass {
+.forms {
     background-color: #fff;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
     background-image: -webkit-linear-gradient(top, #fff, #eee);
@@ -90,14 +100,19 @@
         0 7px 0 rgba(0, 0, 0, .2);
 }
 
-#regis {
-    height: 500px;
-    margin: -250px 0 0 -230px;
+#regisForm, #pageUserForm {
+    height: 560px;
+    margin: -280px 0 0 -230px;
+}
+
+#addlistForm {
+    height: 750px;
+    margin: -400px 0 0 -230px;
 }
 
 
 
-#login:before  , #regis:before , #sendPas:befor {
+.forms:before   {
     content: '';
     position: absolute;
     z-index: -1;
@@ -136,7 +151,7 @@ fieldset {
 
 /*--------------------*/
 
-#inputsE input , #inputsR input , #inputsP input {
+#inputsE input , #inputsR input , #inputsP input, #inputsAL input, #inputsPU input{
     background: #f1f1f1 url(/images/login-sprite.png) no-repeat;
     padding: 15px 15px 15px 30px;
     margin: 0 0 10px 0;
@@ -158,7 +173,7 @@ fieldset {
     background-position: 5px -52px !important;
 }
 
-#inputsE input:focus , #inputsR input:focus , #inputsP input:focus {
+#inputsE input:focus , #inputsR input:focus , #inputsP input:focus, #inputsAL input:focus, #inputsPU input:focus {
     background-color: #fff;
     border-color: #e8c291;
     outline: none;
@@ -168,11 +183,11 @@ fieldset {
 }
 
 /*--------------------*/
-#actionsE , #actionsR, #actionsP {
+#actionsE , #actionsR, #actionsP, #actionsAL, #actionsPU {
     margin: 25px 0 0 0;
 }
 
-#buttonEnter , #buttonReg, #buttonSendPass, #logout {		
+.submits, #logout {		
     background-color: #ffb94b;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
     background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
@@ -198,7 +213,7 @@ fieldset {
     float: left;
     height: 35px;
     padding: 0;
-    width: 120px;
+    width: 160px;
     cursor: pointer;
     font: bold 15px Arial, Helvetica;
     color: #8f5a0a;
@@ -210,7 +225,7 @@ fieldset {
     width: 60px;
 }
 
-#buttonEnter:hover,#buttonEnter:focus ,#buttonReg:hover,#buttonReg:focus ,#logout:hover,#logout:focus, #buttonSendPass:hover, #buttonSendPass:focus {		
+.submits:hover,.submits:focus ,#logout:hover,#logout:focus {		
     background-color: #fddb6f;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
     background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
@@ -220,7 +235,7 @@ fieldset {
     background-image: linear-gradient(top, #ffb94b, #fddb6f);
 }	
 
-#buttonEnter:active , #buttonReg:active , #buttonSendPass:active, #logout:active {		
+.submits:active  #logout:active {		
     outline: none;
 
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
@@ -228,7 +243,7 @@ fieldset {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
 }
 
-#buttonEnter::-moz-focus-inner , #buttonReg::-moz-focus-inner,#buttonSendPass::-moz-focus-inner, #logout::-moz-focus-inner  {
+.submits::-moz-focus-inner , #logout::-moz-focus-inner  {
     border: none;
 }
 

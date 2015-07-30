@@ -16,7 +16,7 @@ body {
 /*                                  Header
 /*----------------------------------------------------------------------------*/
 
-#enterMain , #searchMain{
+.mainAll {
     display: none;
     height: 150%;
     width: 100%;
@@ -125,12 +125,13 @@ body {
     margin: 7px 40px 10px -5px;
 }
 
-#avatarVk {
+#avatar {
     height: 30px;
     width: 30px;
     float: right;
     margin: -5px 5px;
 }
+
 
 /*----------------------------------------------------------------------------*/
 
@@ -210,7 +211,7 @@ body {
     float: left;
 }
 
-#listings {
+#eddListings {
     border: solid 1px black;
     font: 14px arial,sans-serif;
     border-bottom: solid 1px #000;
@@ -222,7 +223,7 @@ body {
     box-shadow: inset 0px 0px 10px #000;
 }
 
-#listings span {
+#eddListings span {
     font-size: 20px;
     margin: 0 10px 0 0;
 }

@@ -16,7 +16,7 @@ and open the template in the editor.
         <script  src="js/libs/jquery/jquery.js"></script>
         <script  src="js/libs/jquery.pjax/jquery.pjax.js"></script>
         <script  src="js/libs/spin.js/spin.min.js"></script>
-        <script  src="js/libs/jquery-cookie/jquery.cookie.js"></script>
+        <!--<script  src="js/libs/jquery-cookie/jquery.cookie.js"></script>-->
         <script  src="/scripts/header.js"></script>
         <script  src="/scripts/array.js"></script>
         <script  src="/scripts/pjax.js"></script>
@@ -24,13 +24,17 @@ and open the template in the editor.
         <script  src="/scripts/slider.js"></script>
         <script  src="/scripts/blockAdv.js"></script>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        
+
 
         <title></title>
         <link rel="shortcut icon" href="images/ico.ico" >
     </head>
     <body>
+ 
         <?php
+        ini_set('display_errors', 'On');
+        error_reporting(E_ALL | E_STRICT);
+        
         include 'enterReg.php';
         ?>
 
@@ -59,9 +63,11 @@ and open the template in the editor.
             var spinner1 = new Spinner(opts).spin(target1);
             var target2 = document.getElementById('loading2');
             var spinner2 = new Spinner(opts).spin(target2);
+            var target3 = document.getElementById('loading3');
+            var spinner3 = new Spinner(opts).spin(target3);
         </script>
         <!-----------------------------------------------------------------------------> 
-        <div id="searchMain">
+        <div class="mainAll" id="searchMain">
 
 
             <div id="searchField">
@@ -94,37 +100,48 @@ and open the template in the editor.
                 </form>
             </div>
         </div>
+
+
+
         <div id="main">
             <!----------------------------------------------------------------------------->
 
             <div id="header"> 
                 <?php
-                session_start();
-
-                if (isset($_SESSION['name'])) {
+                $Login = filter_input(INPUT_COOKIE, 'Login', FILTER_VALIDATE_BOOLEAN);
+                
+                if (isset($Login) && $Login == true) {
                     ?>
 
                     <div id="headerUp">
                         <form id="logout_f" method="post" action="">
                             <input id="logout" type="submit" name="logout" value="Выйти" onclick="AjaxFormRequest('logout', 'logout_f', 'registrationEnter/exit.php')"/>
                         </form>
-                        <span>Добро пожаловать, <strong><?php if (isset($_COOKIE['username'])) {echo $_COOKIE['username']; } else { echo $_SESSION['username'];} ?></strong>
-                            <?php
-                            if (isset($_COOKIE['avatar'])) {
+                        <span>Добро пожаловать, <strong>
+                                <?php
+                                $username = filter_input(INPUT_COOKIE, 'username', FILTER_SANITIZE_STRING);
+                                if (isset($username)) { ?>
+                                <a id="userPage"><?php echo $username; ?></a>
+                                    <?php
+                                } else {
+                                    //echo $_SESSION['username'];
+                                }
+                                ?></strong>
+                                <?php
+                                $avatar = filter_input(INPUT_COOKIE, 'avatar', FILTER_VALIDATE_URL, FILTER_SANITIZE_URL);
+                            if (isset($avatar)) {
                                 ?>
-                                <img id="avatarVk" src="<?php echo $_COOKIE['avatar'] ?>" /></span>
+                                <img id="avatar" src="<?php echo $avatar ?>" /></span>
                             <?php
-                        } else if(isset($_SESSION['avatar'])) { 
+                        } else if (isset($_SESSION['avatar'])) {
                             ?>
-                        
-                            <img id="avatarVk" src="<?php echo $_SESSION['avatar'] ?>" /></span>
-                           
-                        <?php 
-                        
+
+                            <img id="avatar" src="<?php echo '/registrationEnter/'.$_SESSION['avatar'] ?>" /></span>
+
+                            <?php
                         } else {
-                             echo '<img id="avatarVk" src="images/man.png" />';
+                            echo '<img id="avatar" src="registrationEnter/avatars/net-avatara.jpg" />';
                         }
-                        
                         ?>
 
 
@@ -193,7 +210,7 @@ and open the template in the editor.
 
                     <div id="news">Новости</div>
 
-                    <div id="listings"><span>+</span>Добавить обьявления</div>
+                    <div id="eddListings"><span>+</span>Добавить обьявления</div>
 
                     <div id="search">
 

@@ -1,15 +1,17 @@
+
 (function ($) {
     $(document).ready(function () {
 
         var $header = $('#header');
         var $news = $('#news');
         var i = 0;
-        var $listings = $('#listings');
+        var $eddListings = $('#eddListings');
         var $search = $('#search');
         var $headerDown = $('#headerDown');
-        var $searchMain = $('#searchMain');
         var $enter = $('#enter');
+        var $searchMain = $('#searchMain');
         var $enterMain = $('#enterMain');
+        var $addlistMain = $('#addlistMain');
 //------------------------------------------------------------------------------
 //                            Events Header
 //------------------------------------------------------------------------------
@@ -90,10 +92,12 @@
             $('#enterField').fadeOut(500);
             $('#sendPassField').fadeIn(500);
         });
+
+
 //------------------------------------------------------------------------5-----
 
         $('#buttonEnter').click(function () {
-            
+
             setTimeout(function () {
                 var $messengerEnterText = $('#messengerEnter').text().trim();
                 if ($messengerEnterText !== "f") {
@@ -102,7 +106,7 @@
                     $('#messengerEnter').css({opacity: "0"});
                 }
                 if ($messengerEnterText === "Вы успешно вошли на сайт!") {
-                    
+
                     location.reload();
                     alert($messengerEnterText);
                 }
@@ -136,14 +140,64 @@
 //------------------------------------------------------------------------8-----
 
         $('#logout').click(function () {
-            $.cookie('Login', null);
-            $.cookie('uresname', null);
-            $.cookie('avatar', null);
-            location.reload();
+            setTimeout(function () {
+                location.reload();
+            }, 300);
         });
 
+
+
+//------------------------------------------------------------------------------
+
+        $('#buttonPageUser').click(function () {
+            setTimeout(function () {
+                $('#messengerPageUser').animate({opacity: "1"}, 500);
+            }, 50);
+        });
+
+
 //------------------------------------------------------------------------9----- 
-             
+        $('#userPage').click(function (e) {
+            if ($('#pageUserField').length) {
+            $addlistMain.css({
+                display: "inline"
+            }).animate({opacity: 0.97}, 500);
+            $('#addlistField').fadeOut();
+            $('#pageUserField').fadeIn(500);
+            $('.closeEnter').click(function () {
+                $addlistMain.css({display: "none", opacity: 0});
+                $('#messengerPageUser').css({opacity: "0"});
+            });
+        } else {
+            alert('Вы авторизованы через контакт. Ваши данные соответствуют данным вконтакет!'+
+                   'Вы можете изменить их изменив данные вконтакте');
+        }
+
+        });
+
+
+
+//------------------------------------------------------------------------10----- 
+
+        $eddListings.click(function () {
+            if ($addlistMain.length) {
+                $addlistMain.css({
+                    display: "inline"
+                }).animate({opacity: 0.97}, 500);
+                $('#pageUserField').fadeOut();
+                $('#addlistField').fadeIn(500);
+                $('.closeEnter').click(function () {
+                    $addlistMain.css({display: "none", opacity: 0});
+                    //$('#messengerEnter, #messengerReg, #messengerPass').css({opacity: "0"});
+                });
+            } else {
+                alert('Добавление доступно только для авторизованных пользователей!');
+            }
+
+        });
+
+
+
 //------------------------------------------------------------------------------
 //                              Functions
 //------------------------------------------------------------------------------
@@ -157,7 +211,7 @@
                 border: "solid 1px black"
 
             });
-            $listings.css({
+            $eddListings.css({
                 height: "50px",
                 width: "300px",
                 marginTop: "-25px",
@@ -197,7 +251,7 @@
             $headerDown.css({
                 borderBottom: "solid 1px #000"
             });
-            $listings.css({
+            $eddListings.css({
                 height: "24px",
                 width: "200px",
                 marginTop: "0px",
@@ -230,12 +284,18 @@
     });
 })(jQuery);
 function AjaxFormRequest(result_id, formMain, url) {
+    jQuery('form').submit(function () {
+        return false;
+    });
     jQuery('.spinner').css({display: "inline"});
+    var formData = new FormData($("#" + formMain)[0]);
     jQuery.ajax({
         url: url,
         type: "POST",
-        dataType: "html",
-        data: $("#" + formMain).serialize(),
+        cache: false,
+        processData: false,
+        contentType: false,
+        data: formData,
         success: function (response) {
             document.getElementById(result_id).innerHTML = response;
             jQuery('.spinner').css({display: "none"});
@@ -244,8 +304,6 @@ function AjaxFormRequest(result_id, formMain, url) {
             document.getElementById(result_id).innerHTML = "<p>Возникла ошибка при отправке формы. Попробуйте еще раз</p>";
         }
     });
-    jQuery('form').submit(function () {
-        return false;
-    });
+
 }
 

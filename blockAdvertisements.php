@@ -1,10 +1,13 @@
 
 <?php
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 session_start();
-if (!$_SERVER['HTTP_X_PJAX']) {
+if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
     include 'header.php';
     echo 'Не работает';
 }
+$_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_VALIDATE_URL, FILTER_SANITIZE_URL);
 ?>
 
 

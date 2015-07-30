@@ -1,19 +1,12 @@
 
 <!----------------------------------------------------------------------------->
 <?php
-if (!$_SERVER['HTTP_X_PJAX']) {
+if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
     include 'header.php';
 }
 ?>
 
-
 <div id="middle">
-
-
-
-
-
-
 
     <!----------------------------------------------------------------------------->
     <div id="services">

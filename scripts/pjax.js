@@ -10,8 +10,6 @@
                     + '[href$="mp3"],[href$="jpg"],[href$="jpeg"],[href$="gif"],[href$="png"],[href$="doc"],[href$="pdf"])', '#middle', {timout: 0, scrollTo: 0});
 
 
-
-
             $(document).on('pjax:start', function () {
                 $(this).addClass('loading');
                 $middle.animate({opacity: "0"}, 0);
