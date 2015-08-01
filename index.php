@@ -1,5 +1,5 @@
 
-<!----------------------------------------------------------------------------->
+
 <?php
 if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
     include 'header.php';
@@ -7,7 +7,7 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
 ?>
 
 <div id="middle">
-    <!----------------------------------------------------------------------------->
+
     <div id="services">
         <div id="servicesFirst">Услуги</div>
         <div id="servicesSecond"></div>
@@ -50,7 +50,7 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
         </div><hr>
     </div>
 
-    <!----------------------------------------------------------------------------->
+
 
     <div id="domShow">
         <div class="table" id="table1"><a></a></div>
