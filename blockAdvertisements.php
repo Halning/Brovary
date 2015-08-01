@@ -12,7 +12,6 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
 
 <div id="middle">
 
-    <!----------------------------------------------------------------------------->
 
     <div id="domBackBA">
         <hr><div id="back"><a href="/index.php">Назад</a></div>
@@ -28,7 +27,6 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
         </div><hr>
     </div>
 
-    <!----------------------------------------------------------------------------->
 
     <div id="domShowBA">
         <div class="tableBA" id="tableBA1" ><a></a></div>
@@ -76,7 +74,6 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
         </div>
     </div>
 
-    <!----------------------------------------------------------------------------->
 
     <div id="look">
         <div class="lookImg">Вид:</div>
@@ -115,7 +112,6 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
         </form>
     </div>
 
-    <!---------------------------------------------------------------------------> 
 
     <div id="middleBA">
         <div class="listings" id="listFirst"><hr>
@@ -127,7 +123,6 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
         </div>
     </div>      
 
-    <!---------------------------------------------------------------------------> 
 
     <div id="pagesConteiner"><hr>
         <a id="pagePrev" class="prevNext" href="#"><strong><<Предыдущая</strong></a>
