@@ -3,6 +3,10 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
+//------------------------------------------------------------------------------
+//                      Проверяем залогинен ли пользователь                      
+//------------------------------------------------------------------------------
+
 session_start();
 
 $db = mysqli_connect("localhost", "root", "565456a", "Brovary") or die(mysqli_error());
@@ -17,12 +21,17 @@ if (isset($_COOKIE['id'])) {
 
 
 //------------------------------------------------------------------------------
+//     Дополнительная проверка если залогинен записываем имя пользователя
+//------------------------------------------------------------------------------
 
 if (!empty($_SESSION['username']) && !empty($_SESSION['avatar'])) {
     $username = $_SESSION['username'];
 } else if (isset($_COOKIE['Login']) && isset($_COOKIE['avatar']) && isset($_COOKIE['username'])) {
     $username = filter_input(INPUT_COOKIE, 'username', FILTER_SANITIZE_STRING);
 }
+//------------------------------------------------------------------------------
+//                      Изменяем данные клиента
+//------------------------------------------------------------------------------
 
 if (isset($username)) {
     $response = mysqli_query($db, "SELECT id,login, avatar FROM    users WHERE  username='$username'");
@@ -52,7 +61,6 @@ if (isset($username)) {
             $loginNew = $userData['login'];
         }
 
-
         if (isset($_FILES['fileNew'])) {
 
             $fupload = $_FILES['fileNew'];
@@ -60,7 +68,9 @@ if (isset($username)) {
                 unset($fupload); // если переменная $fupload пуста, то удаляем ее
             }
         }
-
+//------------------------------------------------------------------------------
+//                      Изменяем аватар клиента
+//------------------------------------------------------------------------------       
 
         if ($_FILES['fileNew']['name'] == "") {
             $avatarNew = $userData['avatar'];
@@ -82,7 +92,6 @@ if (isset($username)) {
                     exit('PHP-расширение остановило загрузку файла. PHP не предоставляет способа определить какое расширение остановило загрузку файла; в этом может помочь просмотр списка загруженных расширений из phpinfo(). Добавлено в PHP 5.2.0.');
             }
 
-
             $fileType = exif_imagetype($_FILES["fileNew"]["tmp_name"]);
             $allowed = array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG);
             if (!in_array($fileType, $allowed)) {
@@ -95,7 +104,6 @@ if (isset($username)) {
             $avatarNew = $path_to_90_directory . $date . ".jpg";
             $im = 100;
             list($width, $height) = getimagesize($source);
-
 
             if ($width > $height) {
                 $crop = $height;
@@ -112,14 +120,17 @@ if (isset($username)) {
             $image->thumbnailImage($im, $im);
             $image->setImageFormat('jpeg');
             $image->setImageCompressionQuality(90);
-            //$image->writeImage($avatar);
             if (isset($image)) {
                 file_put_contents($avatarNew, $image);
                 if ($oldAvatar != 'avatars/net-avatara.jpg') {
-                unlink($oldAvatar);
+                    unlink($oldAvatar);
                 }
             }
         }
+//------------------------------------------------------------------------------
+//        Записываем новые данные в базу,куки и сессию
+//------------------------------------------------------------------------------        
+
         var_dump($avatarNew);
         var_dump($usernameNew);
         var_dump($loginNew);
@@ -128,19 +139,18 @@ if (isset($username)) {
             unset($_SESSION['login']);
             unset($_SESSION['username']);
             unset($_SESSION['avatar']);
-            SetCookie('avatar', '', time() - 3600, "/", '', 0, true);
-            SetCookie('username', '', time() - 3600, "/", '', 0, true);
+            SetCookie('avatar', '', time() - 360000, "/", '', 0, true);
+            SetCookie('username', '', time() - 360000, "/", '', 0, true);
             $_SESSION['login'] = $loginNew;
             $_SESSION['username'] = $usernameNew;
             $_SESSION['avatar'] = $avatarNew;
-            SetCookie('avatar', 'http://brovary/registrationEnter/' . $avatarNew, time() + 3600, "/", '', 0, true);
-            setcookie('username', $usernameNew, time() + 3600, "/", '', 0, true);
+            SetCookie('avatar', 'http://brovary/registrationEnter/' . $avatarNew, time() + 360000, "/", '', 0, true);
+            setcookie('username', $usernameNew, time() + 360000, "/", '', 0, true);
             echo 'Новые данные сохранены!!!';
         }
     }
 } else {
-    //Проверяем,    зарегистрирован ли вошедший
-    exit("DВход на эту    страницу разрешен только зарегистрированным пользователям!");
+    exit("Вход на эту    страницу разрешен только зарегистрированным пользователям!");
 }
 
 

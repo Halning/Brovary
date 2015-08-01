@@ -1,6 +1,4 @@
 
-
-
 <?php
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
@@ -17,11 +15,9 @@ $activation = $userData['activation'];
 
 $avatar = 'http://brovary/registrationEnter/' .$userData['avatar'];
 
-
-if (empty($e_login) || empty($e_password)) { //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
+if (empty($e_login) || empty($e_password)) { 
     exit("f");
 }
-
 
 if (isset($activation) && $activation == 0) {
     exit('Активируйте акаунт!');
@@ -29,10 +25,10 @@ if (isset($activation) && $activation == 0) {
 
 if ($userData['password'] == $e_password || $userData['login'] == $e_login) {
     echo 'Вы успешно вошли на сайт!';
-    setcookie('Login', 'true', time() + 3600, "/",'', 0, true);
-    SetCookie('avatar', $avatar, time() + 3600, "/", '', 0 , true);
-    setcookie('username', $username, time() + 3600, "/", '', 0, true);
-    setcookie('id', $id, time() + 3600, "/", '', 0, true);
+    setcookie('Login', 'true', time() + 360000, "/",'', 0, true);
+    SetCookie('avatar', $avatar, time() + 360000, "/", '', 0 , true);
+    setcookie('username', $username, time() + 360000, "/", '', 0, true);
+    setcookie('id', $id, time() + 360000, "/", '', 0, true);
     session_start();
     $_SESSION['login'] = $e_login;
     $_SESSION['username'] = $username;

@@ -1,6 +1,4 @@
 (function ($) {
-
-
     var elWrap = $('#slider1, #slider2'),
             el = elWrap.find('img'),
             indexImg = 1,
@@ -26,8 +24,6 @@
     elWrap.mouseout(function () {
         interval = setInterval(autoCange, 3000);
     });
-
-
 
     elWrap.click(function () {
         indexImg++;

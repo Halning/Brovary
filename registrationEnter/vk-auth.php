@@ -3,11 +3,14 @@
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
+//------------------------------------------------------------------------------
+//                              Формируем запросы
+//------------------------------------------------------------------------------
+
 $client_id = '4998094'; // ID приложения
 $client_secret = 'mwMuCWQYB26JRl5WOt6V'; // Защищённый ключ
 $redirect_uri = 'http://brovary/index.php'; // Адрес сайта
 
-        
 if (isset($_GET['code'])) {
     $code = htmlspecialchars(htmlentities(strip_tags($_GET['code']), ENT_QUOTES, "UTF-8"), ENT_QUOTES);
     $result = false;
@@ -33,9 +36,11 @@ if (isset($_GET['code'])) {
             $result = true;
         }
     }
+//------------------------------------------------------------------------------
+//          Работаем с полученными данными из вконтакта       
+//------------------------------------------------------------------------------   
 
     if ($result) {
-        var_dump($userInfo);
 //echo "Социальный ID пользователя: " . $userInfo['uid'] . '<br />';
 //echo "Имя пользователя: " . $userInfo['first_name'] . '<br />';
 //echo "Ссылка на профиль пользователя: " . $userInfo['screen_name'] . '<br />';
@@ -60,9 +65,9 @@ if (isset($_GET['code'])) {
             mysqli_query("UPDATE  uservk SET  username =  '$username', login = '$login', avatar = '$avatar' WHERE id = '$userId'") or die(mysqli_error());
             echo 'Смена данных!!!';
         }
-        SetCookie('Login', 'true', time() + 36000, "/",'', 0 , true);
-        SetCookie('avatar', $avatar, time() + 3600, "/", '', 0 , true);
-        SetCookie('username', $username, time() + 3600, "/",'', 0 , true);
+        SetCookie('Login', 'true', time() + 360000, "/", '', 0, true);
+        SetCookie('avatar', $avatar, time() + 360000, "/", '', 0, true);
+        SetCookie('username', $username, time() + 360000, "/", '', 0, true);
         session_start();
         $_SESSION['login'] = $login;
         $_SESSION['username'] = $username;
@@ -71,7 +76,7 @@ if (isset($_GET['code'])) {
         var_dump($u);
         if ($u[0] == 'http://brovary/services-nout.html') {
             header('HTTP/1.1 200 OK');
-            header('Location:'.$u[0]);
+            header('Location:' . $u[0]);
             unset($_SESSION['hurl']);
         } else {
             header('HTTP/1.1 200 OK');

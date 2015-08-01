@@ -1,5 +1,4 @@
 
-
 <?php
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
@@ -10,29 +9,26 @@ if (empty($email)) {
     exit("Некоректный email");
 }
 
-//заносим введенный пользователем e-mail, если он    пустой, то уничтожаем переменную
-if (isset($email)) {//если существуют необходимые переменные  
+if (isset($email)) { 
     
     $db = mysqli_connect("localhost", "root", "565456a", "Brovary") or die(mysqli_error());
     
-    $res = mysqli_query($db,"SELECT id,password,login FROM users WHERE  email='$email' AND activation='1'") or die(mysqli_error()); //такой ли у пользователя е-мейл 
+    $res = mysqli_query($db,"SELECT id,password,login FROM users WHERE  email='$email' AND activation='1'") or die(mysqli_error());  
     $myrow = mysqli_fetch_assoc($res);
     $password = $myrow['password'];
     $login = $myrow['login'];
     if (empty($myrow['id']) or $myrow['id'] == '') {
-        //если активированного пользователя с таким логином и е-mail    адресом нет
         exit("Пользователя с    таким e-mail адресом не обнаружено ни в одной базе ЦРУ :)");
     }
 
-    $datenow = date('YmdHis'); //извлекаем    дату 
-    $new_password = substr($datenow, 2, 6); //извлекаем из шифра 6 символов начиная    со второго. Это и будет наш случайный пароль. Далее запишем его в базу,    зашифровав точно так же, как и обычно.
+    $datenow = date('YmdHis'); 
+    $new_password = substr($datenow, 2, 6); 
 
-    $new_password_sh = md5($new_password); //зашифровали 
-    mysqli_query($db,"UPDATE users SET    password='$new_password_sh' WHERE login='$login'")or die(mysqli_error()); // обновили в базе 
+    $new_password_sh = md5($new_password); 
+    mysqli_query($db,"UPDATE users SET    password='$new_password_sh' WHERE login='$login'")or die(mysqli_error()); 
 
-
-    $message = "Здравствуйте,    " . $login . "!\n Ваш пароль:\n" . $new_password; //текст сообщения
-    $response = mail($email, "Восстановление пароля", $message, "Content-type:text/plane;    Charset=utf-8\r\n"); //отправляем сообщение 
+    $message = "Здравствуйте,    " . $login . "!\n Ваш пароль:\n" . $new_password; 
+    $response = mail($email, "Восстановление пароля", $message, "Content-type:text/html;    Charset=utf-8\r\n");  
     if ($response == TRUE) {
         echo 'На вашу почту ' . $email . ' было отправлено письмо с паролем';
     } else {

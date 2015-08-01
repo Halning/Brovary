@@ -10,29 +10,22 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
 $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_VALIDATE_URL, FILTER_SANITIZE_URL);
 ?>
 
-
-
-
 <div id="middle">
-
 
     <!----------------------------------------------------------------------------->
 
     <div id="domBackBA">
-
         <hr><div id="back"><a href="/index.php">Назад</a></div>
         <div id="borderSpanBA">
-
             <span id="firstSpanBA"></span>
-            <img class="rightImgShowBA" src="images/right.png"/>
+            <img class="rightImgShowBA" src="images/right.png">
             <span></span>
-            <img class="rightImgShowBA" src="images/right.png"/>
+            <img class="rightImgShowBA" src="images/right.png">
             <span></span>
             <br><span id="lastSpan"></span>
             <div id="goBackBA">
             </div>
         </div><hr>
-
     </div>
 
     <!----------------------------------------------------------------------------->
@@ -45,9 +38,9 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
 
         <div  class="advertising" id="advS1">
             <div id="slider1" class="slider_wrap">		
-                <img alt="Image 1" class="active" src="/images/adv.jpg" />
-                <img alt="Image 2" src="/images/adv1.jpg" />
-                <img alt="Image 3" src="/images/adv2.jpg" />
+                <img alt="Image 1" class="active" src="/images/adv.jpg" >
+                <img alt="Image 2" src="/images/adv1.jpg" >
+                <img alt="Image 3" src="/images/adv2.jpg" >
             </div>
         </div>
 
@@ -56,7 +49,7 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
         <div class="tableBA" id="tableBA7"><a></a></div>
 
 
-        <div id="nextPageBA">
+        <div class="nextPageBA">
             <div id="imgNextPageBA"></div>
         </div>
         <div class="tableBA" id="tableBA8"><a></a></div>
@@ -67,9 +60,9 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
 
         <div  class="advertising" id="advS2">
             <div id="slider2" class="slider_wrap">		
-                <img alt="Image 1" class="active" src="/images/adv.jpg" />
-                <img alt="Image 2" src="/images/adv1.jpg" />
-                <img alt="Image 3" src="/images/adv2.jpg" />
+                <img alt="Image 1" class="active" src="/images/adv.jpg" >
+                <img alt="Image 2" src="/images/adv1.jpg" >
+                <img alt="Image 3" src="/images/adv2.jpg" >
             </div>
         </div>
 
@@ -78,23 +71,21 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
         <div class="tableBA" id="tableBA14"><a></a></div>
 
 
-        <div id="nextPageBA">
+        <div class="nextPageBA">
             <div id="imgBeforePageBA"></div>
         </div>
     </div>
 
-
     <!----------------------------------------------------------------------------->
-
 
     <div id="look">
         <div class="lookImg">Вид:</div>
-        <img class="lookImg" id="lookList" src="/images/up.jpg" title="Список"/> 
-        <img class="lookImg" id="lookTile" src="/images/up.jpg" title="Плитка"/> 
+        <img class="lookImg" id="lookList" src="/images/up.jpg" title="Список"> 
+        <img class="lookImg" id="lookTile" src="/images/up.jpg" title="Плитка"> 
     </div>
+    
     <div id="cost">
         <form action="select1.php" method="post">
-
             <input class="setingsCostBA" type="text" placeholder="Цена от (грн.)" name="setingsCostD">
             <input class="setingsCostBA" type="text" placeholder="Цена до (грн.)" name="setingsCostU">
             <select class="ssCBA" size="1" name="costD">
@@ -103,16 +94,15 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
                 <option value="300">от 300 грн.
                 <option value="1000">от 1000 грн.
             </select>
-
             <select class="ssCBA" size="1" name="costU">
                 <option value="100">до 100 грн.
                 <option value="1000">до 1000 грн.
                 <option value="3000">до 3000 грн.
                 <option value="10000">до 10000 грн.
             </select>
-
         </form>
     </div>
+    
     <div id="sorting">
         Сортировка:
         <form action="select1.php" method="post">
@@ -123,20 +113,17 @@ $_SESSION['hurl'] = filter_var('http://brovary'.$_SERVER['REQUEST_URI'], FILTER_
                 <option value="10000">до 10000 грн.
             </select>
         </form>
-
     </div>
 
     <!---------------------------------------------------------------------------> 
 
     <div id="middleBA">
         <div class="listings" id="listFirst"><hr>
-
-            <img id="listImg" src="/images/nout3.jpg"/>
+            <img id="listImg" src="/images/nout3.jpg">
             <a id="listName" href="#"><strong>Ноут борзый</strong></a>
             <span>1999 грн.</span>
             <br><br><br><br id="lastBr"><span>В избранное</span>
             <p>Сегодня 22:00</p>
-
         </div>
     </div>      
 

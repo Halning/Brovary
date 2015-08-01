@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <!----------------------------------------------------------------------------->
 <?php
 if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
@@ -7,10 +7,8 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
 ?>
 
 <div id="middle">
-
     <!----------------------------------------------------------------------------->
     <div id="services">
-
         <div id="servicesFirst">Услуги</div>
         <div id="servicesSecond"></div>
         <div id="servicesThird"></div>
@@ -41,16 +39,15 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
     <div id="domBack">
         <hr><div class="borderSpan">
             <span id="firstSpan"></span>
-            <img class="rightImgShow" src="images/right.png"/>
+            <img class="rightImgShow" src="images/right.png">
             <span></span>
-            <img class="rightImgShow" src="images/right.png"/>
+            <img class="rightImgShow" src="images/right.png">
             <span></span>
-            <img class="rightImgShow" src="images/right.png"/>
+            <img class="rightImgShow" src="images/right.png">
             <span></span>
             <div id="goBack">
             </div>
         </div><hr>
-
     </div>
 
     <!----------------------------------------------------------------------------->
@@ -63,9 +60,9 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
 
         <div  class="advertising" id="advS1">
             <div id="slider1" class="slider_wrap">		
-                <img alt="Image 1" src="/images/adv.jpg" />
-                <img alt="Image 2" src="/images/adv1.jpg" />
-                <img alt="Image 3" src="/images/adv2.jpg" />
+                <img alt="Image 1" src="/images/adv.jpg" >
+                <img alt="Image 2" src="/images/adv1.jpg" >
+                <img alt="Image 3" src="/images/adv2.jpg" >
             </div>
         </div>
 
@@ -74,7 +71,7 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
         <div class="table" id="table7"><a></a></div>
 
 
-        <div id="nextPage">
+        <div class="nextPage">
             <div id="imgNextPage"></div>
         </div>
         <div class="table" id="table8"><a></a></div>
@@ -85,9 +82,9 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
 
         <div  class="advertising" id="advS2">
             <div id="slider2" class="slider_wrap">		
-                <img alt="Image 1" src="/images/adv.jpg" />
-                <img alt="Image 2" src="/images/adv1.jpg" />
-                <img alt="Image 3" src="/images/adv2.jpg" />
+                <img alt="Image 1" src="/images/adv.jpg" >
+                <img alt="Image 2" src="/images/adv1.jpg" >
+                <img alt="Image 3" src="/images/adv2.jpg" >
             </div>
         </div>
 
@@ -96,13 +93,9 @@ if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
         <div class="table" id="table14"><a></a></div>
 
 
-        <div id="nextPage">
+        <div class="nextPage">
             <div id="imgBeforePage"></div>
         </div>
     </div>
-    <!----------------------------------------------------------------------------->
-
-
-
 </div>
 

@@ -1,11 +1,5 @@
 
-
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,63 +7,20 @@ and open the template in the editor.
         <link rel="stylesheet" href="style/main.css">
         <link rel="stylesheet" href="style/styleBA.css">
         <link rel="stylesheet" href="style/styleER.css">
-        <script  src="js/libs/jquery/jquery.js"></script>
-        <script  src="js/libs/jquery.pjax/jquery.pjax.js"></script>
-        <script  src="js/libs/spin.js/spin.min.js"></script>
-        <!--<script  src="js/libs/jquery-cookie/jquery.cookie.js"></script>-->
-        <script  src="/scripts/header.js"></script>
-        <script  src="/scripts/array.js"></script>
-        <script  src="/scripts/pjax.js"></script>
-        <script  src="/scripts/index.js"></script>
-        <script  src="/scripts/slider.js"></script>
-        <script  src="/scripts/blockAdv.js"></script>
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 
         <title></title>
         <link rel="shortcut icon" href="images/ico.ico" >
     </head>
     <body>
- 
+
         <?php
         ini_set('display_errors', 'On');
         error_reporting(E_ALL | E_STRICT);
-        
         include 'enterReg.php';
         ?>
 
-        <script>
-            var opts = {
-                lines: 10, // Число линий для рисования
-                length: 0, // Длина каждой линии
-                width: 10, // Толщина линии
-                radius: 20, // Радиус внутреннего круга
-                corners: 1, // Скругление углов (0..1)
-                rotate: 0, // Смещение вращения
-                direction: 1, // 1: по часовой стрелке, -1: против часовой стрелки
-                color: '#000', // #rgb или #rrggbb или массив цветов
-                speed: 2, // Кругов в секунду
-                trail: 17, // Послесвечение
-                shadow: true, // Тень(true - да; false - нет)
-                hwaccel: false, // Аппаратное ускорение
-                className: 'spinner', // CSS класс
-                zIndex: 2e9, // z-index (по-умолчанию 2000000000)
-                top: '35%', // Положение сверху относительно родителя
-                left: '275%' // Положение слева относительно родителя
-            };
-            var target = document.getElementById('loading');
-            var spinner = new Spinner(opts).spin(target);
-            var target1 = document.getElementById('loading1');
-            var spinner1 = new Spinner(opts).spin(target1);
-            var target2 = document.getElementById('loading2');
-            var spinner2 = new Spinner(opts).spin(target2);
-            var target3 = document.getElementById('loading3');
-            var spinner3 = new Spinner(opts).spin(target3);
-        </script>
         <!-----------------------------------------------------------------------------> 
         <div class="mainAll" id="searchMain">
-
-
             <div id="searchField">
                 <img id="closeSearch" src="/images/close.png"/>
                 <form action="select1.php" method="post">
@@ -78,7 +29,6 @@ and open the template in the editor.
                     <br><br><br>
                     <p>Настройки поиска:</p>
                     <br>
-
                     <input class="setingsCost" type="text" placeholder="Цена от (грн.)" name="setingsCostD">
                     <input class="setingsCost" type="text" placeholder="Цена до (грн.)" name="setingsCostU">
                     <input id="subSearch" type="submit" value="Искать"/>
@@ -88,9 +38,6 @@ and open the template in the editor.
                             <option value="300">от 300 грн.
                             <option value="1000">от 1000 грн.
                         </select>
-
-
-
                         <select class="ssC" size="1" name="costU">
                             <option value="100">до 100 грн.
                             <option value="1000">до 1000 грн.
@@ -101,15 +48,12 @@ and open the template in the editor.
             </div>
         </div>
 
-
-
         <div id="main">
             <!----------------------------------------------------------------------------->
-
             <div id="header"> 
                 <?php
                 $Login = filter_input(INPUT_COOKIE, 'Login', FILTER_VALIDATE_BOOLEAN);
-                
+
                 if (isset($Login) && $Login == true) {
                     ?>
 
@@ -120,15 +64,16 @@ and open the template in the editor.
                         <span>Добро пожаловать, <strong>
                                 <?php
                                 $username = filter_input(INPUT_COOKIE, 'username', FILTER_SANITIZE_STRING);
-                                if (isset($username)) { ?>
-                                <a id="userPage"><?php echo $username; ?></a>
+                                if (isset($username)) {
+                                    ?>
+                                    <a id="userPage"><?php echo $username; ?></a>
                                     <?php
                                 } else {
-                                    //echo $_SESSION['username'];
+                                    echo $_SESSION['username'];
                                 }
                                 ?></strong>
-                                <?php
-                                $avatar = filter_input(INPUT_COOKIE, 'avatar', FILTER_VALIDATE_URL, FILTER_SANITIZE_URL);
+                            <?php
+                            $avatar = filter_input(INPUT_COOKIE, 'avatar', FILTER_VALIDATE_URL, FILTER_SANITIZE_URL);
                             if (isset($avatar)) {
                                 ?>
                                 <img id="avatar" src="<?php echo $avatar ?>" /></span>
@@ -136,14 +81,13 @@ and open the template in the editor.
                         } else if (isset($_SESSION['avatar'])) {
                             ?>
 
-                            <img id="avatar" src="<?php echo '/registrationEnter/'.$_SESSION['avatar'] ?>" /></span>
+                            <img id="avatar" src="<?php echo '/registrationEnter/' . $_SESSION['avatar'] ?>" /></span>
 
                             <?php
                         } else {
                             echo '<img id="avatar" src="registrationEnter/avatars/net-avatara.jpg" />';
                         }
                         ?>
-
 
                     </div>
                     <?php
@@ -154,7 +98,6 @@ and open the template in the editor.
                 </div>';
                 }
                 ?>
-
 
                 <!----------------------------------------------------------------------------->
 
@@ -201,23 +144,16 @@ and open the template in the editor.
                                             var cl = 'minfin-informer-m1Fn-currency';
                                             document.getElementById(cl).innerHTML = iframe;
                     </script>
-
                 </div>
 
                 <!----------------------------------------------------------------------------->
 
                 <div id="headerDown">
-
                     <div id="news">Новости</div>
-
                     <div id="eddListings"><span>+</span>Добавить обьявления</div>
-
                     <div id="search">
-
                         <p>Поиск...<img id="searchImg" src="/images/loopa.png" /></p>
-
                     </div>
-
                 </div>
                 <div id="panelNews">
 
@@ -225,6 +161,47 @@ and open the template in the editor.
                     include 'news.php';
                     ?>
 
-
                 </div>
             </div>
+
+
+            <script  src="js/libs/jquery/jquery.js"></script>
+            <script  src="js/libs/jquery.pjax/jquery.pjax.js"></script>
+            <script  src="js/libs/spin.js/spin.min.js"></script>
+            <script  src="/scripts/header.js"></script>
+            <script  src="/scripts/array.js"></script>
+            <script  src="/scripts/pjax.js"></script>
+            <script  src="/scripts/index.js"></script>
+            <script  src="/scripts/slider.js"></script>
+            <script  src="/scripts/blockAdv.js"></script>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+            <script type="text/javascript">
+                                            var opts = {
+                                                lines: 10, // Число линий для рисования
+                                                length: 0, // Длина каждой линии
+                                                width: 10, // Толщина линии
+                                                radius: 20, // Радиус внутреннего круга
+                                                corners: 1, // Скругление углов (0..1)
+                                                rotate: 0, // Смещение вращения
+                                                direction: 1, // 1: по часовой стрелке, -1: против часовой стрелки
+                                                color: '#000', // #rgb или #rrggbb или массив цветов
+                                                speed: 2, // Кругов в секунду
+                                                trail: 17, // Послесвечение
+                                                shadow: true, // Тень(true - да; false - нет)
+                                                hwaccel: false, // Аппаратное ускорение
+                                                className: 'spinner', // CSS класс
+                                                zIndex: 2e9, // z-index (по-умолчанию 2000000000)
+                                                top: '35', // Положение сверху относительно родителя
+                                                left: '275' // Положение слева относительно родителя
+                                            };
+                                            var target = document.getElementById('loading');
+                                            var spinner = new Spinner(opts).spin(target);
+                                            var target1 = document.getElementById('loading1');
+                                            var spinner1 = new Spinner(opts).spin(target1);
+                                            var target2 = document.getElementById('loading2');
+                                            var spinner2 = new Spinner(opts).spin(target2);
+                                            var target3 = document.getElementById('loading3');
+                                            var spinner3 = new Spinner(opts).spin(target3);
+                                            var target4 = document.getElementById('loading4');
+                                            var spinner4 = new Spinner(opts).spin(target4);
+            </script>

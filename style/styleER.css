@@ -46,18 +46,13 @@
     margin: -400px 0 0 -450px;
 }
 
-#pageUserField {
-    
-}
-
 .closeEnter {
     float: right;
     margin: -35px -35px 0 0;
     cursor: pointer;
 }
-
-
 /*-----------------------------------------------------------------------------*/
+
 .forms {
     background-color: #fff;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
@@ -110,8 +105,6 @@
     margin: -400px 0 0 -230px;
 }
 
-
-
 .forms:before   {
     content: '';
     position: absolute;
@@ -127,7 +120,6 @@
 }
 
 /*--------------------*/
-
 h1 {
     text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
     text-transform: uppercase;
@@ -138,9 +130,6 @@ h1 {
     font: normal 26px/1 Verdana, Helvetica;
     position: relative;
 }
-
-
-
 /*--------------------*/
 
 fieldset {
@@ -148,7 +137,6 @@ fieldset {
     padding: 0;
     margin: 0;
 }
-
 /*--------------------*/
 
 #inputsE input , #inputsR input , #inputsP input, #inputsAL input, #inputsPU input{
@@ -181,8 +169,8 @@ fieldset {
     -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
     box-shadow: 0 0 0 1px #e8c291 inset;
 }
-
 /*--------------------*/
+
 #actionsE , #actionsR, #actionsP, #actionsAL, #actionsPU {
     margin: 25px 0 0 0;
 }

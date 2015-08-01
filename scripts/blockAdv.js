@@ -1,8 +1,5 @@
 
-
-
 /* global array */
-
 var $section, $name;
 (function ($) {
     $().ready(function () {
@@ -38,7 +35,6 @@ var $section, $name;
 //------------------------------------------------------------------------------
 //-----------------------------------------------------------------------1------
 
-
         for (var key in arrayLastSpan) {
             if (key === $name) {
                 $lastSpan.text(arrayLastSpan [key]);
@@ -46,11 +42,10 @@ var $section, $name;
                 break;
             }
         }
-
         var text = $lastSpan.text();
         var elemShow = $section;
-
 //------------------------------------------------------------------------2-----
+
         $('#pageOne').nextUntil().not('hr').hide();
         var p = 1;
         for (var i = 1; i < listingsCount; i++) {
@@ -66,7 +61,6 @@ var $section, $name;
         if (listingsCount > 5) {
             $pageNext.show();
         }
-
 //------------------------------------------------------------------------------
 //                              Events Middle
 //------------------------------------------------------------------------------
@@ -76,30 +70,23 @@ var $section, $name;
 //------------------------------------------------------------------------------
 
         $('.lookImg').hover(function (event) {
-            // Hover over code
             var titleText = $(this).attr('title');
             $(this)
                     .data('tipText', titleText)
                     .removeAttr('title');
-
-
             $('<p class="tooltip"></p>')
                     .text(titleText)
                     .appendTo('body')
                     .css('top', (event.pageY - 10) + 'px')
                     .css('left', (event.pageX + 20) + 'px')
                     .fadeIn('slow');
-
-
         }, function () {
-// Hover out code
             $(this).attr('title', $(this).data('tipText'));
             $('.tooltip').remove();
         }).mousemove(function (event) {
             $('.tooltip')
                     .css('top', (event.pageY - 10) + 'px')
                     .css('left', (event.pageX + 20) + 'px');
-// Mouse move code
         });
 
 //----------------------------------------------------------------------2-------
@@ -116,7 +103,6 @@ var $section, $name;
                 height: "70%"
             });
             $listings.find('br:not(:last)').hide();
-
         });
 
         $('#lookList').click(function () {
@@ -131,11 +117,8 @@ var $section, $name;
                 height: "98%"
             });
             $listings.find('br:not(:last)').show();
-
         });
-
 //----------------------------------------------------------------------3-------
-
 
         $domBackBA.hover(function () {
             for (var key in arrayBackPanel) {
@@ -145,19 +128,14 @@ var $section, $name;
                     break;
                 }
             }
-
             $domBackBAspanNotLast.animate({opacity: "1"}, 300);
             $lastSpan.css({letterSpacing: "2px"});
             $rightImgShowBA.animate({opacity: "1"}, 300);
-
-
         }, function () {
-
             $domBackBAspanNotLast.animate({opacity: "0"}, 300);
             $lastSpan.css({letterSpacing: "normal"});
             $rightImgShowBA.animate({opacity: "0"}, 300);
         });
-
 //-----------------------------------------------------------------------4------
 
         $goBackBA.click(function () {
@@ -167,16 +145,12 @@ var $section, $name;
                 $domBackBAspanNotLast.css({display: "inline"});
                 $lastSpan.css({letterSpacing: "2px"});
                 $rightImgShowBA.css({display: "inline"});
-
             }, function () {
-
                 $domBackBAspanNotLast.css({display: "none"});
                 $lastSpan.css({letterSpacing: "normal"});
                 $rightImgShowBA.css({display: "none"});
             });
         });
-
-
 //------------------------------------------------------------------------5-----
 
         $tableBA.mouseenter(function () {
@@ -189,7 +163,6 @@ var $section, $name;
                 boxShadow: "none"});
             $("#goRight").remove();
         });
-
 //-----------------------------------------------------------------------6------
 
         var s = 0;
@@ -197,21 +170,18 @@ var $section, $name;
         var textSlaid;
         $tableBA.click(function () {
             textSlaid = $(this).text();
-            //alert(textSlaid);
             $("#domBackBA span").eq(s).next().next().animate({opacity: "0"}, 0).text(textSlaid).css({display: "inline", fontSize: "16px"});
             $rightImgShowBA.eq(s).css({display: "inline"});
             returnn = searchText($(this));
             s++;
 
         });
-
 //------------------------------------------------------------------------7-----
 
         $domBackBAspanNotLast.click(function () {
             $(this).nextUntil('div').fadeOut(500);
             slideShow(elemShow);
             searchText($(this));
-
             nextPage();
             $domBackBA.off();
             s = $(this).index();
@@ -224,8 +194,6 @@ var $section, $name;
             if ($(this).index() === 4) {
                 s = s - 2;
             }
-
-
         });
 //------------------------------------------------------------------------8-----
 
@@ -240,19 +208,14 @@ var $section, $name;
                 color: "#1E90FF"
             });
         });
-
 //------------------------------------------------------------------------9-----
 
         $pages.click(function () {
-
             var pageNumber = parseInt($(this).text());
-
             $(this).css({backgroundColor: "#1E90FF"});
             $(this).find('strong').css({color: "white"});
-
             $pages.not($(this)).css({backgroundColor: "white"});
             $pages.find('strong').not($(this).find('strong')).css({color: "#1E90FF"});
-
             if (pageNumber !== 1) {
                 $pagePrev.show();
             } else {
@@ -265,19 +228,14 @@ var $section, $name;
                 $pageNext.show();
             }
         });
-        
 //------------------------------------------------------------------------10----
 
         var pageHref, $activePage, pageNumberPN;
-
         $('.prevNext').click(function () {
             var textPrevNext = $(this).text();
-
             for (var i = 0; i < p; i++) {
                 if ($pages.eq(i).css("backgroundColor") === 'rgb(30, 144, 255)') {
-
                     if (textPrevNext === "Следующая>>") {
-
                         $activePage = $pages.eq(i).next();
                         pageNumberPN = parseInt($pages.eq(i).next().text());
                         pageHref = $pages.eq(i).next().find('a').attr('href');
@@ -288,49 +246,37 @@ var $section, $name;
                     }
                     break;
                 }
-
             }
             $(this).attr('href', pageHref);
-
             $activePage.css({backgroundColor: "#1E90FF"});
             $activePage.find('strong').css({color: "white"});
-
-
             $pages.not($activePage).css({backgroundColor: "white"});
             $pages.find('strong').not($activePage.find('strong')).css({color: "#1E90FF"});
-
-
             if (pageNumberPN !== 1) {
                 $pagePrev.show();
             } else {
                 $pagePrev.hide();
             }
-
             if (pageNumberPN === p) {
                 $pageNext.hide();
             } else {
                 $pageNext.show();
             }
-
         });
-
 //------------------------------------------------------------------------------
 //                              Functions
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------1-----
 
         function slideShow(elemShow) {
-
             if (elemShow === "work" || elemShow === "organization") {
                 $domShowBA.find('.tableBA').slice(7, 30).hide();
                 $domShowBA.find('#advS2,#imgNextPageBA, #imgBeforePageBA').hide();
             } else if (elemShow === "goods") {
                 $domShowBA.find('.tableBA').slice(3, 30).hide();
                 $domShowBA.find('.advertising,#imgNextPageBA, #imgBeforePageBA').hide();
-
-            } 
+            }
             $goBackBA.css({opacity: "1"});
-
         }
 //------------------------------------------------------------------------2-----
 
@@ -348,7 +294,6 @@ var $section, $name;
             var destination = $(elem).offset().top - top;
             $body.animate({scrollTop: destination}, speed); //1100 - скорость
         }
-
 //------------------------------------------------------------------------4-----
 
         function nextPage() {
@@ -359,7 +304,6 @@ var $section, $name;
                 $domShowBA.animate({scrollTop: "0"}, 1000);
             });
         }
-        
 //----------------------------------------------------------------------5-------
 
         function searchText(elem) {
@@ -372,21 +316,17 @@ var $section, $name;
                     break;
                 }
             }
-
             if (text !== " ") {
                 $tableBA.css({backgroundColor: "#8470FF",
                     boxShadow: "none"});
                 $("#goRight").remove();
                 return 0;
             }
-
         }
-
 //------------------------------------------------------------------------6-----
 
         function changeMiddleText(arr) {
             var len = arr.length;
-
             $domShowBA.each(function () {
                 for (var i = 0; i < len; i++) {
                     $domShowBA.find('a').eq(i).replaceWith(arr[i][0]);
@@ -396,8 +336,6 @@ var $section, $name;
             changingTheNumberOfTables(len);
             animateShow();
         }
-
-
 //-----------------------------------------------------------------------7-----
 
         function changeSpan(arr) {
@@ -409,15 +347,12 @@ var $section, $name;
             } else {
                 $('.rightImgShowBA:eq(0), .rightImgShowBA:eq(1), .rightImgShowBA:eq(2)').css({display: "inline"});
             }
-
             $domBackBA.each(function () {
                 for (var i = 0; i < len; i++) {
                     $domBackBA.find('span').eq(i).text(arr[i]);
                 }
             });
         }
-
-
 //-----------------------------------------------------------------------8------
 
         function changingTheNumberOfTables(len) {
@@ -426,16 +361,13 @@ var $section, $name;
                 maxHeight: "470px",
                 overflowY: "scroll"
             });
-
             if (len < 8 && len > 3) {
                 $('#advS2, #imgNextPageBA, #imgBeforePageBA').css({display: "none"});
             } else if (len <= 3) {
                 $('#advS1,#advS2, #imgNextPageBA, #imgBeforePageBA').css({display: "none"});
-            }   else {
+            } else {
                 $('#advS1,#advS2, #imgNextPageBA, #imgBeforePageBA').show();
             }
-
-
         }
 //------------------------------------------------------------------------9-----
 
@@ -451,7 +383,5 @@ var $section, $name;
                 boxShadow: "none"});
             $("#goRight").remove();
         }
-
     });
-
 })(jQuery);

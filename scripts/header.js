@@ -1,7 +1,6 @@
 
 (function ($) {
-    $(document).ready(function () {
-
+    $().ready(function () {
         var $header = $('#header');
         var $news = $('#news');
         var i = 0;
@@ -12,14 +11,16 @@
         var $searchMain = $('#searchMain');
         var $enterMain = $('#enterMain');
         var $addlistMain = $('#addlistMain');
+        var $closeEnter = $('.closeEnter');
+        var $registrationField = $('#registrationField');
+        var $enterField = $('#enterField');
+        var $sendPassField = $('#sendPassField');
 //------------------------------------------------------------------------------
 //                            Events Header
 //------------------------------------------------------------------------------
-
 //-----------------------------------------------------------------------1------
 
         $news.click(function () {
-
             $('#panelNews').slideToggle('slow');
             i = 1;
             hideHeader();
@@ -59,7 +60,6 @@
 //------------------------------------------------------------------------3-----
 
         $search.click(function () {
-
             $searchMain.css({
                 display: "inline"
             }).animate({opacity: 0.97}, 500);
@@ -70,58 +70,55 @@
 //------------------------------------------------------------------------4-----
 
         $enter.click(function () {
-
             $enterMain.css({
                 display: "inline"
             }).animate({opacity: 0.97}, 500);
-            $('#registrationField').fadeOut();
-            $('#sendPassField').fadeOut();
-            $('#enterField').fadeIn();
+            $registrationField.fadeOut();
+            $sendPassField.fadeOut();
+            $enterField.fadeIn();
         });
-        $('.closeEnter').click(function () {
+        $closeEnter.click(function () {
             $enterMain.css({display: "none", opacity: 0});
             $('#messengerEnter, #messengerReg, #messengerPass').css({opacity: "0"});
         });
         $('#a_reg').click(function (e) {
             e.preventDefault();
-            $('#enterField').fadeOut(500);
-            $('#registrationField').fadeIn(500);
+            $enterField.fadeOut(500);
+            $registrationField.fadeIn(500);
         });
         $('#a_pass').click(function (e) {
             e.preventDefault();
-            $('#enterField').fadeOut(500);
-            $('#sendPassField').fadeIn(500);
+            $enterField.fadeOut(500);
+            $sendPassField.fadeIn(500);
         });
-
-
 //------------------------------------------------------------------------5-----
 
         $('#buttonEnter').click(function () {
-
             setTimeout(function () {
-                var $messengerEnterText = $('#messengerEnter').text().trim();
+                var $messengerEnter = $('#messengerEnter');
+                var $messengerEnterText = $messengerEnter.text().trim();
                 if ($messengerEnterText !== "f") {
-                    $('#messengerEnter').animate({opacity: "1"}, 500);
+                    $messengerEnter.animate({opacity: "1"}, 500);
                 } else {
-                    $('#messengerEnter').css({opacity: "0"});
+                    $messengerEnter.css({opacity: "0"});
                 }
                 if ($messengerEnterText === "Вы успешно вошли на сайт!") {
-
                     location.reload();
                     alert($messengerEnterText);
                 }
-            }, 50);
+            }, 500);
         });
 //------------------------------------------------------------------------6-----
 
         $('#buttonReg').click(function () {
             $('body, html').animate({scrollTop: 0}, 0);
             setTimeout(function () {
-                var $messengerRegText = $('#messengerReg').text().trim();
+                var $messengerReg = $('#messengerReg');
+                var $messengerRegText = $messengerReg.text().trim();
                 if ($messengerRegText !== "f") {
-                    $('#messengerReg').animate({opacity: "1"}, 500);
+                    $messengerReg.animate({opacity: "1"}, 500);
                 } else {
-                    $('#messengerReg').css({opacity: "0"});
+                    $messengerReg.css({opacity: "0"});
                 }
             }, 500);
         });
@@ -129,11 +126,12 @@
 
         $('#buttonSendPass').click(function () {
             setTimeout(function () {
-                var $messengerPassText = $('#messengerPass').text().trim();
+                var $messengerPass = $('#messengerPass');
+                var $messengerPassText = $messengerPass.text().trim();
                 if ($messengerPassText !== "f") {
-                    $('#messengerPass').animate({opacity: "1"}, 500);
+                    $messengerPass.animate({opacity: "1"}, 500);
                 } else {
-                    $('#messengerPass').css({opacity: "0"});
+                    $messengerPass.css({opacity: "0"});
                 }
             }, 50);
         });
@@ -144,39 +142,32 @@
                 location.reload();
             }, 300);
         });
-
-
-
-//------------------------------------------------------------------------------
+//------------------------------------------------------------------------9-----
 
         $('#buttonPageUser').click(function () {
             setTimeout(function () {
                 $('#messengerPageUser').animate({opacity: "1"}, 500);
             }, 50);
         });
+//-----------------------------------------------------------------------10----- 
 
-
-//------------------------------------------------------------------------9----- 
-        $('#userPage').click(function (e) {
-            if ($('#pageUserField').length) {
-            $addlistMain.css({
-                display: "inline"
-            }).animate({opacity: 0.97}, 500);
-            $('#addlistField').fadeOut();
-            $('#pageUserField').fadeIn(500);
-            $('.closeEnter').click(function () {
-                $addlistMain.css({display: "none", opacity: 0});
-                $('#messengerPageUser').css({opacity: "0"});
-            });
-        } else {
-            alert('Вы авторизованы через контакт. Ваши данные соответствуют данным вконтакет!'+
-                   'Вы можете изменить их изменив данные вконтакте');
-        }
-
+        $('#userPage').click(function () {
+            var $pageUserField = $('#pageUserField');
+            if ($pageUserField.length) {
+                $addlistMain.css({
+                    display: "inline"
+                }).animate({opacity: 0.97}, 500);
+                $('#addlistField').fadeOut();
+                $pageUserField.fadeIn(500);
+                $closeEnter.click(function () {
+                    $addlistMain.css({display: "none", opacity: 0});
+                    $('#messengerPageUser').css({opacity: "0"});
+                });
+            } else {
+                alert('Вы авторизованы через контакт. Ваши данные соответствуют данным вконтакет!' +
+                        'Вы можете изменить их изменив данные вконтакте');
+            }
         });
-
-
-
 //------------------------------------------------------------------------10----- 
 
         $eddListings.click(function () {
@@ -186,7 +177,7 @@
                 }).animate({opacity: 0.97}, 500);
                 $('#pageUserField').fadeOut();
                 $('#addlistField').fadeIn(500);
-                $('.closeEnter').click(function () {
+                $closeEnter.click(function () {
                     $addlistMain.css({display: "none", opacity: 0});
                     //$('#messengerEnter, #messengerReg, #messengerPass').css({opacity: "0"});
                 });
@@ -195,15 +186,12 @@
             }
 
         });
-
-
-
 //------------------------------------------------------------------------------
 //                              Functions
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------1-----
-        function showHeader() {
 
+        function showHeader() {
             $headerDown.css("borderBottom", "none");
             $news.css({
                 height: "50px",
@@ -243,11 +231,9 @@
                 backgroundSize: "100%"
             });
         }
-
 //------------------------------------------------------------------------2-----
 
         function hideHeader() {
-
             $headerDown.css({
                 borderBottom: "solid 1px #000"
             });
@@ -275,13 +261,9 @@
 
             }).append('<p>Поиск...<img id="searchImg" src="images/loopa.png" /></p>');
         }
-
-
-
 //------------------------------------------------------------------------3-----
-
-
     });
+
 })(jQuery);
 function AjaxFormRequest(result_id, formMain, url) {
     jQuery('form').submit(function () {
@@ -297,13 +279,12 @@ function AjaxFormRequest(result_id, formMain, url) {
         contentType: false,
         data: formData,
         success: function (response) {
-            document.getElementById(result_id).innerHTML = response;
+            jQuery('#' + result_id).text(response);
             jQuery('.spinner').css({display: "none"});
         },
-        error: function (response) {
-            document.getElementById(result_id).innerHTML = "<p>Возникла ошибка при отправке формы. Попробуйте еще раз</p>";
+        error: function () {
+            jQuery('#' + result_id).text("Возникла ошибка при отправке формы. Попробуйте еще раз");
         }
     });
-
 }
 

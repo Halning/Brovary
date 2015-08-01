@@ -1,41 +1,26 @@
 
-
 /* global array */
-
 (function ($) {
-
     $().ready(function () {
         $('#main').css({height: "150%"});
         $('title').text('Информационный сайт');
-        var $body = $(document.body), $middle = $('#middle'),
-                $services = $('#services'), $domBack = $('#domBack'), $domShow = $('#domShow'),
+        var     $services = $('#services'), $domBack = $('#domBack'), $domShow = $('#domShow'),
                 $goods = $('#goods'),
                 $work = $('#work'),
                 $organization = $('#organization'),
                 $goBack = $('#goBack'), $rightImgShow = $('.rightImgShow'),
                 $table = $('.table');
-
 //------------------------------------------------------------------------------
 //                              Events Middle
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------1-----
 
-        $('#buttonReg').click(function () {
-            $.post({
-                url: 'https://www.google.com/recaptcha/api/siteverify?secret=6LeurQkTAAAAAIO0WQTA2UfwutlNcHC7V0bKBSne&response=post.g-recaptcha-response',
-                success: function (data) {
-                    alert(1);
-                }
-
-            });
-        });
         $('#imgNextPage').click(function () {
             $domShow.animate({scrollTop: "490"}, 1000);
         });
         $('#imgBeforePage').click(function () {
             $domShow.animate({scrollTop: "0"}, 1000);
         });
-
 //------------------------------------------------------------------------2-----
 
         var h = 0;
@@ -57,7 +42,6 @@
                 slideShow($goods);
                 scroll_to_elem('#goods', 1000, 30);
             }
-
         });
         $work.click(function () {
             if (h === 0) {
@@ -91,7 +75,6 @@
             scroll_to_elem('body', 1000, 0);
             h = 0;
         });
-
 //------------------------------------------------------------------------3-----
 
         $table.mouseenter(function () {
@@ -104,7 +87,6 @@
                 boxShadow: "none"});
             $("#goRight").remove();
         });
-
 //-----------------------------------------------------------------------4------
 
         var s = 0;
@@ -117,11 +99,9 @@
             returnn = searchText($(this));
             s++;
         });
-
 //---------------------------------------------------------------------------5--
 
         $("#domBack span:not(:last)").click(function () {
-
             if (textSlaid !== $(this).text()) {
                 searchText($(this));
                 s = $(this).index();
@@ -137,14 +117,12 @@
                 $(this).nextUntil('div').css({display: "none"});
             }
         });
-
 //------------------------------------------------------------------------------
 //                              Functions
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------1-----
 
         function slideShow(elem) {
-
             if (elem === $work || elem === $organization) {
                 $domShow.find('.table').slice(7, 30).hide();
                 $domShow.find('#advS2,#imgNextPage, #imgBeforePage').hide();
@@ -159,7 +137,6 @@
             $domBack.show(500);
             $domShow.slideDown(500);
         }
-
 //------------------------------------------------------------------------2-----
 
         function goBack(elem) {
@@ -177,8 +154,8 @@
             var destination = $(elem).offset().top - top;
             $('body, html').animate({scrollTop: destination}, speed); //1100 - скорость
         }
-
 //----------------------------------------------------------------------4-------
+
         function searchText(elem) {
             var text = elem.text();
             for (var key1 in array) {
@@ -189,7 +166,6 @@
                     break;
                 }
             }
-
             if (text !== " ") {
                 $table.css({backgroundColor: "#8470FF",
                     boxShadow: "none"});
@@ -197,12 +173,10 @@
                 return 0;
             }
         }
-
 //------------------------------------------------------------------------5-----
 
         function changeMiddleText(arr) {
-            var len = arr.length;
-            
+            var len = arr.length;            
             $domShow.each(function () {
                 for (var i = 0; i < len; i++) {
                     $domShow.find('a').eq(i).replaceWith(arr[i][0]);
@@ -212,7 +186,6 @@
             changingTheNumberOfTables(len);
             animateShow();
         }
-
 //-----------------------------------------------------------------------6-----
 
         function changingTheNumberOfTables(len) {
@@ -229,7 +202,6 @@
                 $('#advS1,#advS2, #imgNextPage, #imgBeforePage').show();
             }
         }
-
 //-------------------------------------------------------------------------7----
 
         function animateShow() {
@@ -243,6 +215,5 @@
                 boxShadow: "none"});
             $("#goRight").remove();
         }
-
     });
 })(jQuery);
