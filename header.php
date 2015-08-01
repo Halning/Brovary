@@ -19,7 +19,6 @@
         include 'enterReg.php';
         ?>
 
-        <!-----------------------------------------------------------------------------> 
         <div class="mainAll" id="searchMain">
             <div id="searchField">
                 <img id="closeSearch" src="/images/close.png"/>
@@ -49,7 +48,7 @@
         </div>
 
         <div id="main">
-            <!----------------------------------------------------------------------------->
+
             <div id="header"> 
                 <?php
                 $Login = filter_input(INPUT_COOKIE, 'Login', FILTER_VALIDATE_BOOLEAN);
@@ -99,7 +98,6 @@
                 }
                 ?>
 
-                <!----------------------------------------------------------------------------->
 
                 <div id="headerCenter">
 
@@ -134,7 +132,6 @@
                         <script type="text/javascript" charset="UTF-8" src="//sinoptik.ua/informers_js.php?title=4&amp;wind=3&amp;cities=303002317&amp;lang=ru"></script>
                     </div>
 
-                    <!----------------------------------------------------------------------------->
 
                     <div id="minfin-informer-m1Fn-currency">Загружаем 
                         <a href="http://minfin.com.ua/currency/" target="_blank">курсы валют</a> 
@@ -146,7 +143,6 @@
                     </script>
                 </div>
 
-                <!----------------------------------------------------------------------------->
 
                 <div id="headerDown">
                     <div id="news">Новости</div>
