@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <!----------------------------------------------------------------------------->
 <?php
 if (!filter_input(INPUT_SERVER, 'HTTP_X_PJAX', FILTER_VALIDATE_BOOLEAN)) {
